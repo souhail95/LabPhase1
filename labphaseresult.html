@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<script  src="labphase.js" async></script>    
+<meta charset="UTF-8">
+<title>Result</title>
+<style>
+    body { background-image: url(https://images.unsplash.com/photo-1535940360221-641a69c43bac?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YWZyaWNhbiUyMHNhdmFubmF8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;}
+ </style>
+ <link   rel ="icon"  href="icon1.jpg" type="image/x-icon" id="favicon" style="border-radius: 50% ;">                         
+</link>
+<link rel="stylesheet" href="labphase.css" />
+</head>
+<body>
+    <header>
+        <nav class="box12">
+        <div>
+         <a href="index.html"><img alt="Travel guide" src="icon1.jpg" style="border-radius:50%; height: 80px; width: 80px;"></a> 
+         <div class="box130"><a href="index.html" style="color:orange;text-decoration: none;">Travel guide</a></div>
+        </div>
+         <div class="box120">
+            <a href="index.html" style="  margin-right: 30px; margin-left: 30px;text-decoration: none;" class="box34">Home</a>
+            <a href="labphaseresult.html" style="  margin-right: 30px; margin-left: 30px; text-decoration: none;" class="box34">Result</a>
+         </div>
+        </nav>
+        </header>
+    <main class="box80" style="height: 892px;">
+<div class="results2"></div>
+</br>
+<div  class="box40"><div id="results"></div></div>
+<div class="results1"></div>
+<div class="box51" ><button type="button" onclick="suppress()" class="box50"  style="text-decoration:none;" ><a href=index.html style="text-decoration:none;color: white;">Confirm,flush data and back to main page</a></button></div>
+<script>
+const resultslist = document.getElementById('results')
+const resultslist1 = document.getElementsByClassName('results1')
+const resultslist2 = document.getElementsByClassName('results2')
+document.getElementsByClassName("results1").innerHtml = localStorage.getItem("textvalue");
+document.getElementsByClassName("results1").innerHtml = localStorage.getItem("textvalue1");
+document.getElementsByClassName("results2").innerHtml = localStorage.getItem("textvalue2");
+resultslist.append(document.getElementsByClassName("results2").innerHtml); 
+resultslist.append(document.createElement('br'))
+new URLSearchParams(window.location.search).forEach((value,name) => {
+    resultslist.append(`${name}: ${value}`)
+    resultslist.append(document.createElement('br'))
+})
+    resultslist.append(document.getElementsByClassName("results1").innerHtml);
+    function suppress(){
+        localStorage.removeItem("textvalue1")
+        localStorage.removeItem("textvalue2")
+        var blank1 = `You haven t booked your ticket yet`
+        localStorage.setItem("textvalue1",blank1)
+    }
+</script>
+</main>
+<footer >
+    <h1 class="box6"> Get connected with </h1>
+    <nav>
+   <div class="box10">
+    <img   src="gmail-logo.png"   width="80"  height="50"  >
+    <img   src="174857.png"       width="100"  height="50"   >
+    <img   src="fb_icon_325x325.png"  width="50" height="50"  >
+   </div>
+   <div class="box11">
+        <h1 class="box33"><a href="https://mail.google.com/" style=" margin-left: 30px; text-decoration: none;"  class="box33">Mail</a></h1>
+        <h1 class="box33"><a href="https://fr.linkedin.com/" style=" margin-left: 75px; text-decoration: none;" class="box33">Linkedin</a></h1>
+        <h1 class="box33"><a href="https://fr-fr.facebook.com/" style=" margin-left:30px; text-decoration: none;" class="box33">Facebook</a></h1>
+   </div>
+    </nav>
+    </footer>
+</body>
+</html>
